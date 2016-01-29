@@ -1,0 +1,110 @@
+/*
+.main{
+    font-family: 'Roboto', sans-serif;
+    padding: 1%;    
+}
+
+.header{
+    margin: 1%;
+    border: 1px solid #818181; 
+}
+
+.allContent{
+    margin: 1%;
+}
+
+.search{    
+    padding: 1%;
+    background-color: deepskyblue;
+}
+
+.resultOfSearch{
+     padding: 1%;
+     background-color: aliceblue;
+}
+
+input[type=text] {
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: none;
+    box-sizing: border-box;
+}
+*/
+
+
+body {
+  padding: 2em; 
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  align-content: space-around;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+ text-align: center;
+}
+
+/* Задаём всем элеметам ширину в 100% */
+.wrapper > * {
+   
+    font-family: 'Roboto', sans-serif;
+    padding: 10px;
+    flex: 1 100%;
+}
+
+.header {
+    background:  #cbf5e2;
+    border: none; 
+}
+
+.footer {
+  background:  #cbf5e2;
+  border: none; 
+}
+
+.main {
+  text-align: left;   
+}
+
+.aside-1 {
+  border: none; 
+  background: #cbf5e2;
+  width: 10px;
+}
+
+/* Экраны среднего размера */
+@media all and (min-width: 600px) {
+  .aside { flex: 1 auto; }
+}
+/* Оба сайдбара располагаются в одной строке */
+
+/* Большие экраны */
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .footer  { order: 3; }
+}
+/* Мы меняем местами элементы .aside-1 и .main, а также сообщаем
+   * элементу .main забирать в два раза больше места, чем сайдбары.
+   */
+
+.buttons{
+    width: 60px;
+    background-color: #818181;
+    border: 1px solid #818181; 
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=text] {
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: 1px solid #818181; ;
+    box-sizing: border-box;
+}
