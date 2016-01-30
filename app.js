@@ -1,8 +1,6 @@
 var EMPTY_PAYLOAD = 'sorry, there are no articles for you :c';
 var articles = [];
 
-articles['hello world'] = 'A "Hello, World!" program is a computer program that outputs "Hello, World!" on a display device. Being a very simple program in most programming languages, it is often used to illustrate to beginning programmers the basic syntax for constructing a working program. It is also used to verify that a language or system is operating correctly.';
-
 function searchArticle(key){
   var payload = articles[key];
   if(payload === undefined){
@@ -11,8 +9,33 @@ function searchArticle(key){
   return payload;
 }
 
+function addArticle(key, payload){
+  articles[key] = payload;
+}
+
+//http://www.w3schools.com/html/html5_webstorage.asp
+function searchArticleLS(key){
+  var payload = localStorage.getItem(key);
+  if(payload === null){
+    payload = EMPTY_PAYLOAD;
+  }
+  return payload;
+}
+
+function addArticleLS(key, payload){
+  localStorage.setItem(key, payload);
+}
+
 function onButtonSearch(){
   var key = document.getElementById('js-key').value;
-  var payload = searchArticle(key);
+  var payload = searchArticleLS(key);
   document.getElementById('js-payload').innerText = payload;
+  document.getElementById('js-add-block').style.visibility = payload === EMPTY_PAYLOAD ? 'visible' :'hidden';
+}
+
+function onButtonAdd(){
+  var key = document.getElementById('js-key').value;
+  var payload = document.getElementById('js-add').value;
+  document.getElementById('js-payload').innerText = payload;
+  addArticleLS(key, payload);
 }
