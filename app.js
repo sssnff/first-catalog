@@ -1,4 +1,4 @@
-var EMPTY_PAYLOAD = 'sorry, there are no articles for you :c';
+var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
 
 function searchArticle(key){
@@ -13,7 +13,7 @@ function addArticle(key, payload){
   articles[key] = payload;
 }
 
-//http://www.w3schools.com/html/html5_webstorage.asp
+//http://www.w3schools.com/html/html5_webstorage.asp boo
 function searchArticleLS(key){
   var payload = localStorage.getItem(key);
   if(payload === null){

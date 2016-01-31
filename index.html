@@ -5,12 +5,15 @@
   <title>start</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="style.css" rel="stylesheet" type="text/css"/>
-
+	
 </head>
 
 <body class="main">
+	
+	<script src="app.js" defer></script>
+	
   <div class="wrapper">
-    <header class="header">HELLO</header>
+    <header class="header"> </header>
     <aside class="aside aside-1"> 
       <input id="js-key" type="text" size="14"><button class="buttons" onclick="onButtonSearch()">search</button>
     </aside>
@@ -29,13 +32,15 @@
 
       </p>
       <div id="js-add-block" class="add-block">
-        <input class="otherInput" id="js-add" type="text" size="14"><button class="buttons" onclick="onButtonAdd()"> add </button>
+        <textarea rows="4" cols="50" class="otherInput" id="js-add" size="14"></textarea><button class="buttons" onclick="onButtonAdd()"> add </button>
+		
+		  
       </div>
     </article>               
-    <footer class="footer">Footer</footer>
+    <footer class="footer"> </footer>
   </div>
 
-  <script src="app.js"></script>
+  
 </body>
 
 </html>
