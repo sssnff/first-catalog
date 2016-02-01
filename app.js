@@ -37,6 +37,7 @@ function onButtonAdd(){
   var key = document.getElementById('js-key').value;
   var payload = document.getElementById('js-add').value;
   document.getElementById('js-payload').innerText = payload;
-  document.getElementById('js-add-block').style.visibility = payload = 'visible';
+  document.getElementById('js-add-block').style.visibility = payload ='visible';
   addArticleLS(key, payload);
 }
+
