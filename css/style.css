@@ -1,0 +1,92 @@
+
+body {
+  padding: 2em; 
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;  
+  align-content: space-around;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+/* Задаём всем элеметам ширину в 100% */
+.wrapper > * {
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  flex: 1 100%;
+}
+
+.header {
+  background:  #cbf5e2;
+  border: none; 
+}
+
+.footer {
+  background:  #cbf5e2;
+  border: none; 
+}
+
+.main {
+  text-align: left;   
+}
+
+.aside-1 {
+	text-align: left; 
+  border: none; 
+  background: #cbf5e2;
+  width: 10px;
+}
+
+.aside-2 {
+  border: none; 
+  background: #cbf5e2;
+  width: 10px;
+}
+/* Экраны среднего размера */
+@media all and (min-width: 300px) {
+  .aside { flex: 1 auto; }
+}
+/* Оба сайдбара располагаются в одной строке */
+
+/* Большие экраны */
+@media all and (min-width: 800px) {
+  .main    { flex: 3 0px; }
+  .aside-1 { order: 1; } 
+  .main    { order: 2; }
+  .aside-2 { order: 3; }  
+  .footer  { order: 4 }
+}
+/* Мы меняем местами элементы .aside-1 и .main, а также сообщаем
+* элементу .main забирать в два раза больше места, чем сайдбары.
+*/
+
+
+input[type=text] {
+  padding: 6px 10px;
+  margin: 8px 0;
+  border: 1px solid #818181; ;
+  box-sizing: border-box;
+}
+
+.newKeyInput, .otherInput{
+	width: 100%;
+}
+
+.add-block{
+  visibility: hidden;
+}
+
+.sidebar-nav .nav{
+    text-align: center;
+    padding: 20px;
+    max-height: none;
+    display: block;
+  }
+
+}
