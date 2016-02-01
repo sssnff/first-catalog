@@ -3063,6 +3063,7 @@ fieldset[disabled] a.btn {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
+  border-radius: 0;
 }
 .btn-default:focus,
 .btn-default.focus {
@@ -5244,7 +5245,7 @@ a.thumbnail.active {
   padding-left: 0;
   list-style: none;
 }
-.list-group {
+.list-group {    
   padding-left: 0;
   margin-bottom: 20px;
 }
@@ -5282,8 +5283,8 @@ button.list-group-item:focus {
   background-color: #f5f5f5;
 }
 button.list-group-item {
-  width: 100%;
-  text-align: left;
+  width: 50%;
+  text-align: left;  
 }
 .list-group-item.disabled,
 .list-group-item.disabled:hover,

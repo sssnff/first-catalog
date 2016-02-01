@@ -6,6 +6,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="style.css" rel="stylesheet" type="text/css"/>
 	
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
 </head>
 
 <body class="main">
@@ -13,9 +16,24 @@
 	<script src="app.js" defer></script>
 	
   <div class="wrapper">
-    <header class="header"> </header>
+    <header class="header">         
+<!--
+        <div class="inline">
+            <button type="button" class="btn btn-default">view all</button>
+        </div>
+-->
+                
+    </header>
     <aside class="aside aside-1"> 
-      <input id="js-key" type="text" size="14"><button class="buttons" onclick="onButtonSearch()">search</button>
+      <input id="js-key" type="text" size="14"> <button type="button" class="btn btn-default" onclick="onButtonSearch()">search</button>
+        
+        <div class="sidebar-nav">
+        <ul class="nav ">
+            <li><button type="button" class="btn btn-default" onclick="viewAll()"> ...........</button></li>
+            <li><button type="button" class="btn btn-default"> ...........</button></li>
+            <li><button type="button" class="btn btn-default"> ...........</button></li>
+          </ul>
+        </div>
     </aside>
     <article class="main">
       <p id="js-payload"> 
@@ -33,15 +51,13 @@
       </p>
       <div id="js-add-block" class="add-block">
        your key: <input class="newKeyInput" id="js-new-key" type="text" size="14">
-        <textarea rows="4" cols="50" class="otherInput" id="js-add" size="14"></textarea>
-<!--          <button class="buttons" onclick="onButtonAdd()"> add </button>-->	
-      
-          <button class="buttons" onclick="onButtonAdd()">add</button>
+        <textarea rows="4" cols="50" class="otherInput" id="js-add" size="14"></textarea>      
+          <button type="button" class="btn btn-default" onclick="onButtonAdd()">add</button>
       </div>
     </article> 
       
     <aside class="aside aside-2" id="js-add-block" class="add-block"> 
-      <button class="buttons" onclick="onButtonNewAdd()"> + </button>
+      <button type="button" class="btn btn-default" onclick="onButtonNewAdd()"> + </button>
     </aside>
       
     <footer class="footer"> </footer>
