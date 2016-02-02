@@ -18,14 +18,14 @@ function onButtonSearch(){
   var key = document.getElementById('js-key').value;
   var payload = searchArticleLS(key);
   document.getElementById('js-new-key').value = key;
-  document.getElementById('js-payload').innerText = payload;
+  document.getElementById('js-payload').innerHTML = payload;
   document.getElementById('js-add-block').style.visibility = payload === EMPTY_PAYLOAD ? 'visible' :'hidden';
 }
 
 function onButtonAdd(){
   var key = document.getElementById('js-new-key').value;
-  var payload = tinyMCE.get('js-add').getContent();
-  document.getElementById('js-payload').innerText = payload;
+  var payload = tinyMCE.get('js-add').getContent({format : 'html'});
+  document.getElementById('js-payload').innerHTML = payload;
   addArticleLS(key, payload);
 }
 
