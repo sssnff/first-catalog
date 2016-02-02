@@ -24,7 +24,7 @@ function onButtonSearch(){
 
 function onButtonAdd(){
   var key = document.getElementById('js-new-key').value;
-  var payload = tinyMCE.get('js-add').getContent({format : 'html'});
+  var payload = tinyMCE.get('js-add').getContent();
   document.getElementById('js-payload').innerText = payload;
   addArticleLS(key, payload);
 }
@@ -34,4 +34,32 @@ function onButtonNewAdd(){
   document.getElementById('js-new-key').value = key;
   document.getElementById('js-payload').innerText = "";
   document.getElementById('js-add-block').style.visibility = 'visible';
+}
+
+function checkIndexedDB(){
+if ("webkitIndexedDB" in window){
+ var idb=window.webkitIndexedDB;
+    alert("yes c:");
+} else if ("mozIndexedDB" in window) {
+ var idb=window.mozIndexedDB;
+    alert("yes c:");
+} else {
+ alert("no :c");
+};
+}
+
+function indexedDB(){
+var idbRequest=idb.open(dbName,dbDescription);
+//dbName – имя базы данных, dbDescription – её описание (опционально)
+//И навесим на него обработчики
+idbRequest.onsuccess=function (e) {   
+};
+idbRequest.onerror=function (e) {
+};
+}
+
+function idbRequestError(err){
+ idbRequest=err.target;
+ //код ошибки idbRequest.errorCode
+ //если webkit, описание ошибки idbRequest.webkitErrorMessage;
 }
