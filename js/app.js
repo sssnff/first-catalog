@@ -1,18 +1,6 @@
 var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
 
-function searchArticle(key){
-  var payload = articles[key];
-  if(payload === undefined){
-    payload = EMPTY_PAYLOAD;
-  }
-  return payload;
-}
-
-function addArticle(key, payload){
-  articles[key] = payload;
-}
-
 //http://www.w3schools.com/html/html5_webstorage.asp boo
 function searchArticleLS(key){
   var payload = localStorage.getItem(key);
@@ -36,7 +24,7 @@ function onButtonSearch(){
 
 function onButtonAdd(){
   var key = document.getElementById('js-new-key').value;
-  var payload = tinyMCE.get('js-add').getContent({format : 'text'});
+  var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   document.getElementById('js-payload').innerText = payload;
   addArticleLS(key, payload);
 }
