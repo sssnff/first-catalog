@@ -3061,8 +3061,8 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #818181;
+  border-color: #818181;
   border-radius: 0;
 }
 .btn-default:focus,
@@ -4497,8 +4497,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #cbf5e2;
 }
 .navbar-default .navbar-brand {
   color: #777;
