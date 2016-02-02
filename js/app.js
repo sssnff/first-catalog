@@ -36,7 +36,7 @@ function onButtonSearch(){
 
 function onButtonAdd(){
   var key = document.getElementById('js-new-key').value;
-  var payload = document.getElementById('js-add').value;
+  var payload = tinyMCE.get('js-add').getContent({format : 'text'});
   document.getElementById('js-payload').innerText = payload;
   addArticleLS(key, payload);
 }
