@@ -1,7 +1,9 @@
 var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
 
-//http://www.w3schools.com/html/html5_webstorage.asp boo
+/**
+* @link http://www.w3schools.com/html/html5_webstorage.asp boo
+*/
 function searchArticleLS(key){
   var payload = localStorage.getItem(key);
   if(payload === null){
@@ -37,13 +39,11 @@ function onButtonNewAdd(){
 }
 
 function checkIndexedDB(){
-if ("webkitIndexedDB" in window){
+if ("indexedDB" in window){
  var idb=window.webkitIndexedDB;
     alert("yes c:");
-} else if ("mozIndexedDB" in window) {
- var idb=window.mozIndexedDB;
-    alert("yes c:");
-} else {
+}
+    else {
  alert("no :c");
 };
 }

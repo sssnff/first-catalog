@@ -17,7 +17,7 @@
         height: 500,          
            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
            });
-</script>
+    </script>
     
 </head>
 
@@ -26,14 +26,16 @@
 	
   <div class="container">
     <header class="header">   
-        <img class="image" src="head.svg">
+        <img class="image" src="images/head.svg">
 <!--        <div id="js-add-block" class="add-block">-->
         <nav class="navbar navbar-default">
             <div class="container-fluid">    
                 <ul class="nav navbar-nav navbar-right">
-                    <button type="button" class="btn btn-default" onclick="onButtonNewAdd()">+</button>
-                    <button type="button" class="btn btn-default" onclick="checkIndexedDB()">check IndexedDB</button> 
-                    <input id="js-key" type="text" size="14"> <button type="button" class="btn btn-default" onclick="onButtonSearch()">search</button> 
+                    <form name="menu">
+                        <button name="addNewArticle" type="button" class="btn btn-default" onclick="onButtonNewAdd()">+</button>
+                        <button name="checkButton" type="button" class="btn btn-default" onclick="checkIndexedDB()">check IndexedDB</button> 
+                        <input name="keyInput" id="js-key" type="text" size="14"> <button name="searchButton" type="button" class="btn btn-default" onclick="onButtonSearch()">search</button> 
+                    </form>                 
                 </ul>
             </div>
         </nav> 
