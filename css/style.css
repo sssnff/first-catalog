@@ -3,13 +3,15 @@ body {
   padding: 2em; 
 }
 
-.header {
-  background:  #cbf5e2;
-  border: none; 
+
+.image {
+  width: 100%;
+  height: auto;
 }
 
 .main {
-  text-align: left;   
+   border-color: black;
+  background-color: #fff;
 }
 
 input[type=text] {
@@ -27,3 +29,8 @@ input[type=text] {
   visibility: hidden;
 }
 
+
+.span10 {
+    border-color: black;
+    border-width: medium; 
+}
