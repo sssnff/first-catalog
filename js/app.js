@@ -7,7 +7,45 @@ var formOutput = document.forms.contentInput;
 * @link http://www.w3schools.com/html/html5_webstorage.asp boo
 */
 
-document.getElementById('js-add').style.display = 'none';
+
+
+var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+var baseName = "articlesDB";
+var storeName = "articles";
+// indexedDB.deleteDatabase(baseName);
+function connectDB(callback){
+  var request = indexedDB.open(baseName, 1);
+  request.onsuccess = function(){
+    callback(event.target.result);
+  }
+  request.onupgradeneeded = function(e){
+    e.currentTarget.result.createObjectStore(storeName, { keyPath: "name" });
+    connectDB(callback);
+  }
+}
+ 
+function addArticle(keyArticle, payloadArticle){
+  connectDB(function(db){
+    var request = db.transaction([storeName], "readwrite")
+					.objectStore(storeName)
+					.put({name: keyArticle, payload: payloadArticle});
+    request.onsuccess = function(){
+      return request.result;
+    }
+  });
+}
+
+function getArticle(keyArticle, callback){
+  connectDB(function(db){
+    var request = db.transaction([storeName], "readwrite")
+					.objectStore(storeName)
+					.get(keyArticle);
+    request.onsuccess = function(){
+      callback(request.result.payload);
+    }
+  });
+}
+
 
 function searchArticleLS(key){
   var payload = localStorage.getItem(key);
@@ -17,47 +55,37 @@ function searchArticleLS(key){
   return payload;
 }
 
-function addArticleLS(key, payload, database){
+function addArticleLS(key, payload){
   localStorage.setItem(key, payload); 
 }  
     
 
 function onButtonSearch(){
-  var key = formMenu.keyInput.value;  
-  var payload = searchArticleLS(key);
-  formOutput.newKey.value = key;  
-  document.getElementById('js-payload').innerHTML = payload; 
-   
-    if( payload === EMPTY_PAYLOAD){
-     document.getElementById('js-add-block').style.visibility = 'visible';
-    }
-    else {
-    document.getElementById('js-add-block').style.display = 'none'; 
-    }    
+  	var key = formMenu.keyInput.value;  
+//  var payload = searchArticleLS(key);
+	getArticle(key, function(payload){
+		formOutput.newKey.value = key;  
+		document.getElementById('js-payload').innerHTML = payload; 
+		if( payload === EMPTY_PAYLOAD){
+		 	document.getElementById('js-add-block').style.display = 'inline';
+		}
+		else {
+			document.getElementById('js-add-block').style.display = 'none'; 
+		}    
+	})	
 }
 
-function check(){
-    var key = formMenu.keyInput.value;  
-    var payload = searchArticleLS(key);
-    formOutput.newKey.value = key;
-      if( payload === EMPTY_PAYLOAD){
-     document.getElementById('js-add-block').style.visibility = 'visible';
-    }
-    else {
-    document.getElementById('js-add-block').style.display = 'none'; 
-    }   
-}
 
 function onButtonAdd(){
   var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   document.getElementById('js-payload').innerHTML = payload;  
-  addArticleLS(key, payload, database);
+  addArticle(key, payload);
 }
 
 function onButtonNewAdd(){
   var key = formMenu.keyInput.value;
   formOutput.newKey.value = key;
   document.getElementById('js-payload').innerText = "";
-  document.getElementById('js-add-block').style.visibility = 'visible';
+  document.getElementById('js-add-block').style.display = 'inline';
 }
