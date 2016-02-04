@@ -6,6 +6,9 @@ var formOutput = document.forms.contentInput;
 /**
 * @link http://www.w3schools.com/html/html5_webstorage.asp boo
 */
+
+document.getElementById('js-add').style.display = 'none';
+
 function searchArticleLS(key){
   var payload = localStorage.getItem(key);
   if(payload === null){
@@ -19,13 +22,30 @@ function addArticleLS(key, payload, database){
 }  
     
 
-
 function onButtonSearch(){
   var key = formMenu.keyInput.value;  
   var payload = searchArticleLS(key);
-  formOutput.newKey.value = key;
+  formOutput.newKey.value = key;  
   document.getElementById('js-payload').innerHTML = payload; 
-  document.getElementById('js-add-block').style.visibility = payload === EMPTY_PAYLOAD ? 'visible' :'hidden';
+   
+    if( payload === EMPTY_PAYLOAD){
+     document.getElementById('js-add-block').style.visibility = 'visible';
+    }
+    else {
+    document.getElementById('js-add-block').style.display = 'none'; 
+    }    
+}
+
+function check(){
+    var key = formMenu.keyInput.value;  
+    var payload = searchArticleLS(key);
+    formOutput.newKey.value = key;
+      if( payload === EMPTY_PAYLOAD){
+     document.getElementById('js-add-block').style.visibility = 'visible';
+    }
+    else {
+    document.getElementById('js-add-block').style.display = 'none'; 
+    }   
 }
 
 function onButtonAdd(){
