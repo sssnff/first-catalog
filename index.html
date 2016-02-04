@@ -34,7 +34,7 @@
                     <form name="menu">
                         <button name="addNewArticle" type="button" class="btn btn-default" onclick="onButtonNewAdd()">+</button>
                         <button name="checkButton" type="button" class="btn btn-default" onclick="checkIndexedDB()">check IndexedDB</button> 
-                        <input name="keyInput" id="js-key" type="text" size="14"> <button name="searchButton" type="button" class="btn btn-default" onclick="onButtonSearch()">search</button> 
+                        <input name="keyInput" type="text" size="14"> <button name="searchButton" type="button" class="btn btn-default" onclick="onButtonSearch()">search</button> 
                     </form>                 
                 </ul>
             </div>
@@ -56,13 +56,16 @@
       Nam ne brute deseruisse. Ei vero molestie vel, sea in tale quaestio. Pro quaestio constituam an. Modus commodo indoctum ne qui, magna aperiam repudiare mei at. Nibh appetere evertitur cu ius, ad per viris decore omittam, ei nec intellegat posidonium. Ei disputando instructior est, nam verear iriure in.
 
       </div>
-      <div id="js-add-block" class="add-block">
-       your key: <input class="newKeyInput" id="js-new-key" type="text" size="14">
-        <textarea rows="4" cols="50" class="otherInput" id="js-add" size="14"></textarea>      
-          <button type="button" class="btn btn-default" onclick="onButtonAdd()">add</button>
-      </div>
+        
+      <div id="js-add-block" class="add-block"> 
+          <form name="contentInput">
+              your key: <input class="newKeyInput" name="newKey" type="text" size="14">
+              <textarea rows="4" cols="50" class="otherInput" name="outputText" id="js-add" size="14"></textarea>      
+              <button name="addButton" type="button" class="btn btn-default" onclick="onButtonAdd()">add</button>       
+          </form>
+        </div>
     </article> 
-     </div> 
+    </div> 
     <footer class="footer"><p></p> </footer>
   </div>
 

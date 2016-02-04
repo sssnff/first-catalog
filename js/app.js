@@ -1,5 +1,7 @@
 var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
+var formMenu = document.forms.menu;
+var formOutput = document.forms.contentInput;
 
 /**
 * @link http://www.w3schools.com/html/html5_webstorage.asp boo
@@ -17,23 +19,23 @@ function addArticleLS(key, payload){
 }
 
 function onButtonSearch(){
-  var key = document.getElementById('js-key').value;
+  var key = formMenu.keyInput.value;  
   var payload = searchArticleLS(key);
-  document.getElementById('js-new-key').value = key;
-  document.getElementById('js-payload').innerHTML = payload;
+  formOutput.newKey.value = key;
+  document.getElementById('js-payload').innerHTML = payload; 
   document.getElementById('js-add-block').style.visibility = payload === EMPTY_PAYLOAD ? 'visible' :'hidden';
 }
 
 function onButtonAdd(){
-  var key = document.getElementById('js-new-key').value;
+  var key = formOutput.newKeyInput.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
-  document.getElementById('js-payload').innerHTML = payload;
+  document.getElementById('js-payload').innerHTML = payload;  
   addArticleLS(key, payload);
 }
 
 function onButtonNewAdd(){
-  var key = document.getElementById('js-key').value;
-  document.getElementById('js-new-key').value = key;
+  var key = formMenu.keyInput.value;
+  formOutput.newKey.value = key;
   document.getElementById('js-payload').innerText = "";
   document.getElementById('js-add-block').style.visibility = 'visible';
 }
