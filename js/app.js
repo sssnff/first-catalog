@@ -3,10 +3,6 @@ var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
 
-
-    var request = indexedDB.open("testDB", 2);
-    var db; 
-
 /**
 * @link http://www.w3schools.com/html/html5_webstorage.asp boo
 */
@@ -18,35 +14,11 @@ function searchArticleLS(key){
   return payload;
 }
 
-function addArticleLS(key, payload, db){
- // localStorage.setItem(key, payload); 
+function addArticleLS(key, payload, database){
+  localStorage.setItem(key, payload); 
+}  
     
-    var transaction = db.transaction([key],payload); 
-    var objectStore = transaction.objectStore(key);
-    
-    request.onerror = function(event){ 
-        console.log("Error opening DB", event);
-    } 
-    request.onupgradeneeded = function(event){
-        console.log("Upgrading"); 
-        db = event.target.result; 
-        var objectStore = db.createObjectStore(key, { 
-            keyPath : "rollNo" });
-    };
-    request.onsuccess = function(event){ 
-        console.log("Success opening DB"); 
-        db = event.target.result; 
-    }
-    
-    transaction.oncomplete = function(event) { 
-        console.log("Success"); 
-    }; 
-    transaction.onerror = function(event) { 
-        console.log("Error");
-    }; 
-   
-    objectStore.add({rollNo: rollNo, name: name});
-}
+
 
 function onButtonSearch(){
   var key = formMenu.keyInput.value;  
@@ -60,7 +32,7 @@ function onButtonAdd(){
   var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   document.getElementById('js-payload').innerHTML = payload;  
-  addArticleLS(key, payload, db);
+  addArticleLS(key, payload, database);
 }
 
 function onButtonNewAdd(){
