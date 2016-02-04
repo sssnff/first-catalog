@@ -3,6 +3,10 @@ var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
 
+
+    var request = indexedDB.open("testDB", 2);
+    var db; 
+
 /**
 * @link http://www.w3schools.com/html/html5_webstorage.asp boo
 */
@@ -14,8 +18,34 @@ function searchArticleLS(key){
   return payload;
 }
 
-function addArticleLS(key, payload){
-  localStorage.setItem(key, payload);
+function addArticleLS(key, payload, db){
+ // localStorage.setItem(key, payload); 
+    
+    var transaction = db.transaction([key],payload); 
+    var objectStore = transaction.objectStore(key);
+    
+    request.onerror = function(event){ 
+        console.log("Error opening DB", event);
+    } 
+    request.onupgradeneeded = function(event){
+        console.log("Upgrading"); 
+        db = event.target.result; 
+        var objectStore = db.createObjectStore(key, { 
+            keyPath : "rollNo" });
+    };
+    request.onsuccess = function(event){ 
+        console.log("Success opening DB"); 
+        db = event.target.result; 
+    }
+    
+    transaction.oncomplete = function(event) { 
+        console.log("Success"); 
+    }; 
+    transaction.onerror = function(event) { 
+        console.log("Error");
+    }; 
+   
+    objectStore.add({rollNo: rollNo, name: name});
 }
 
 function onButtonSearch(){
@@ -27,10 +57,10 @@ function onButtonSearch(){
 }
 
 function onButtonAdd(){
-  var key = formOutput.newKeyInput.value;
+  var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   document.getElementById('js-payload').innerHTML = payload;  
-  addArticleLS(key, payload);
+  addArticleLS(key, payload, db);
 }
 
 function onButtonNewAdd(){
@@ -38,30 +68,4 @@ function onButtonNewAdd(){
   formOutput.newKey.value = key;
   document.getElementById('js-payload').innerText = "";
   document.getElementById('js-add-block').style.visibility = 'visible';
-}
-
-function checkIndexedDB(){
-if ("indexedDB" in window){
- var idb=window.webkitIndexedDB;
-    alert("yes c:");
-}
-    else {
- alert("no :c");
-};
-}
-
-function indexedDB(){
-var idbRequest=idb.open(dbName,dbDescription);
-//dbName – имя базы данных, dbDescription – её описание (опционально)
-//И навесим на него обработчики
-idbRequest.onsuccess=function (e) {   
-};
-idbRequest.onerror=function (e) {
-};
-}
-
-function idbRequestError(err){
- idbRequest=err.target;
- //код ошибки idbRequest.errorCode
- //если webkit, описание ошибки idbRequest.webkitErrorMessage;
 }
