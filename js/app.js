@@ -47,22 +47,8 @@ function getArticle(keyArticle, callback){
 }
 
 
-function searchArticleLS(key){
-  var payload = localStorage.getItem(key);
-  if(payload === null){
-    payload = EMPTY_PAYLOAD;
-  }
-  return payload;
-}
-
-function addArticleLS(key, payload){
-  localStorage.setItem(key, payload); 
-}  
-    
-
 function onButtonSearch(){
-  	var key = formMenu.keyInput.value;  
-//  var payload = searchArticleLS(key);
+  var key = formMenu.keyInput.value;  
 	getArticle(key, function(payload){
 		formOutput.newKey.value = key;  
 		document.getElementById('js-payload').innerHTML = payload; 
