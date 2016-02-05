@@ -14,11 +14,12 @@ body {
   height: auto;
 }
 
+
 input[type=text] {
   padding: 6px 10px;
   margin: 8px 0;
   border: 1px solid #000; 
-  box-sizing: border-box;
+ /* box-sizing: border-box;*/
 }
 
 .newKeyInput, .otherInput{

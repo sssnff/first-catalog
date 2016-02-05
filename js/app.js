@@ -30,7 +30,7 @@ function addArticle(keyArticle, payloadArticle){
 					.objectStore(storeName)
 					.put({name: keyArticle, payload: payloadArticle});
     request.onsuccess = function(){
-      return request.result;
+    return request.result;
     }
   });
 }
@@ -39,26 +39,27 @@ function getArticle(keyArticle, callback){
   connectDB(function(db){
     var request = db.transaction([storeName], "readwrite")
 					.objectStore(storeName)
-					.get(keyArticle);
-    request.onsuccess = function(){
-      callback(request.result.payload);
-    }
+					.get(keyArticle);  
+            request.onsuccess = function(){
+            callback(request.result.payload);
+               }         
+             
   });
 }
 
 
 function onButtonSearch(){
-  var key = formMenu.keyInput.value;  
-	getArticle(key, function(payload){
-		formOutput.newKey.value = key;  
-		document.getElementById('js-payload').innerHTML = payload; 
-		if( payload === EMPTY_PAYLOAD){
-		 	document.getElementById('js-add-block').style.display = 'inline';
-		}
-		else {
-			document.getElementById('js-add-block').style.display = 'none'; 
-		}    
-	})	
+  var key = formMenu.keyInput.value; 
+	  getArticle(key, function(payload){
+		formOutput.newKey.value = key; 
+        if( payload === EMPTY_PAYLOAD){
+            document.getElementById('js-add-block').style.display = 'inline';
+        }
+        else {
+            document.getElementById('js-add-block').style.display = 'none'; 
+        }     
+		document.getElementById('js-payload').innerHTML = payload; 		
+  })	
 }
 
 
