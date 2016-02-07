@@ -40,10 +40,14 @@ function getArticle(keyArticle, callback){
     var request = db.transaction([storeName], "readwrite")
 					.objectStore(storeName)
 					.get(keyArticle);  
-            request.onsuccess = function(){
-            callback(request.result.payload);
-               }         
-             
+	request.onsuccess = function(){
+		var result = request.result;
+		if(result){
+			callback(result.payload);	
+		} else {
+			callback(EMPTY_PAYLOAD);
+		}
+    }   
   });
 }
 
@@ -52,7 +56,7 @@ function onButtonSearch(){
   var key = formMenu.keyInput.value; 
 	  getArticle(key, function(payload){
 		formOutput.newKey.value = key; 
-        if( payload === EMPTY_PAYLOAD){
+        if(payload === EMPTY_PAYLOAD){
             document.getElementById('js-add-block').style.display = 'inline';
         }
         else {
@@ -62,6 +66,9 @@ function onButtonSearch(){
   })	
 }
 
+addBtn.onclick = addBtn2.onclick = function(event){
+	onButtonAdd();
+}
 
 function onButtonAdd(){
   var key = formOutput.newKey.value;
