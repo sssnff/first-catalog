@@ -3,12 +3,6 @@ var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
 
-/**
-* @link http://www.w3schools.com/html/html5_webstorage.asp boo
-*/
-
-
-
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";
 var storeName = "articles";
@@ -69,6 +63,12 @@ function onButtonSearch(){
 addBtn.onclick = addBtn2.onclick = function(event){
 	onButtonAdd();
 }
+
+
+searchButton.onclick = function(event){
+	onButtonSearch();
+}
+
 
 function onButtonAdd(){
   var key = formOutput.newKey.value;

@@ -5,35 +5,35 @@
   <title>start</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <link href="css/style.css" rel="stylesheet" type="text/css"/>	  
-  <script src="js/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="css/bootstrap.css">  
-  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"> 
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
   <script src="js/tinymce/tinymce.min.js" type ="text/javascript"></script>
   <script src="js/tinymce/langs/ru_RU.js" type ="text/javascript"></script>
+    <link rel="SHORTCUT ICON" href="images/herbal.ico" type="image/x-icon">
     
     <script type="text/javascript">
        tinymce.init({
         selector: 'textarea',
         height: 500,          
-           toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | 			link image',
+           toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
            });
     </script>
     
 </head>
 
 <body class="main">	
-	<script src="js/app.js" defer></script>
+<script src="js/app.js" defer></script>
 	
   <div class="container">
-    <header class="header">   
+    <header>   
         <img class="image" src="images/head.svg">
-<!--        <div id="js-add-block" class="add-block">-->
         <nav class="navbar navbar-default">
             <div class="container-fluid">    
                 <ul class="nav navbar-nav navbar-right">
                     <form name="menu">
-                        <button name="addNewArticle" type="button" class="btn btn-default" id="addBtn">+</button>
-                        <input name="keyInput" type="text" size="14"> <button name="searchButton" type="button" class="btn btn-default" 			onclick="onButtonSearch()">search</button> 
+                        <button type="button" class="btn btn-default" id="addBtn">+</button>
+                        <input name="keyInput" type="text" size="14"> <button type="button" class="btn btn-default" id="searchButton">search</button> 
                     </form>                 
                 </ul>
             </div>
@@ -45,7 +45,7 @@
     <div class="span10">
     <article class="main">
       <div class="text" id="js-payload"> 
-      !Lorem ipsum dolor sit amet, mei ut nonumes omittam. Eu munere possit integre mea, oblique legimus an has. Vis in wisi honestatis persequeris. Vis mazim contentiones ad, ad commodo pertinacia pro. Te inani aliquam intellegat mea, illum habemus nec no, delectus eloquentiam ut cum.
+      Lorem ipsum dolor sit amet, mei ut nonumes omittam. Eu munere possit integre mea, oblique legimus an has. Vis in wisi honestatis persequeris. Vis mazim contentiones ad, ad commodo pertinacia pro. Te inani aliquam intellegat mea, illum habemus nec no, delectus eloquentiam ut cum.
 
       Soluta molestie elaboraret ea est. Qui id dicunt omnesque. Error virtute forensibus vis ad, te sea animal aperiri. Tation vituperata inciderint vim ad, duo putant complectitur consequuntur an, tacimates percipitur ex quo. Modus nostro blandit quo ad, duo eu novum eruditi efficiendi, usu ea lorem commune. Eu labore quaeque hendrerit nec, vim ex corpora molestiae. Usu dolorem vivendum ex, te sea erat mucius vituperatoribus.
 
@@ -65,6 +65,11 @@
         </div>
     </article> 
     </div> 
+      
+    <footer>
+        <img class="imageFooter" src="images/footer.svg">
+    </footer>
+      
   </div>
 
   
