@@ -6,6 +6,17 @@ var formOutput = document.forms.contentInput;
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";
 var storeName = "articles";
+
+
+addBtn.onclick = addBtn2.onclick = function(event){
+	onButtonAdd();
+}
+
+searchButton.onclick = function(event){
+	onButtonSearch();
+}
+
+
 // indexedDB.deleteDatabase(baseName);
 function connectDB(callback){
   var request = indexedDB.open(baseName, 1);
@@ -60,22 +71,13 @@ function onButtonSearch(){
   })	
 }
 
-addBtn.onclick = addBtn2.onclick = function(event){
-	onButtonAdd();
-}
-
-
-searchButton.onclick = function(event){
-	onButtonSearch();
-}
-
-
 function onButtonAdd(){
   var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   document.getElementById('js-payload').innerHTML = payload;  
   addArticle(key, payload);
 }
+
 
 function onButtonNewAdd(){
   var key = formMenu.keyInput.value;
