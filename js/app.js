@@ -8,7 +8,11 @@ var baseName = "articlesDB";
 var storeName = "articles";
 
 
-addBtn.onclick = addBtn2.onclick = function(event){
+addBtn.onclick = function(event){
+	onButtonNewAdd();
+}
+
+addBtn2.onclick = function(event){
 	onButtonAdd();
 }
 
