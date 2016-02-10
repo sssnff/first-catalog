@@ -33,7 +33,15 @@ input[type=text] {
   color: #212121;
 }
 
+#inputLog{
+  width: 40%;
+  color: #212121;
+}
 
 #addBtn2{
     width: 100%;
+}
+
+.modal{
+    width: 20%;
 }
