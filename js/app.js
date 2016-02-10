@@ -7,6 +7,8 @@ var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedD
 var baseName = "articlesDB";
 var storeName = "articles";
 
+var addBlock = document.getElementById('js-add-block');
+var payloadElem = document.getElementById('js-payload');
 
 addBtn.onclick = function(event){
 	onButtonNewAdd();
@@ -66,19 +68,19 @@ function onButtonSearch(){
 	  getArticle(key, function(payload){
 		formOutput.newKey.value = key; 
         if(payload === EMPTY_PAYLOAD){
-            document.getElementById('js-add-block').style.display = 'inline';
+           addBlock.style.display = 'inline';
         }
         else {
-            document.getElementById('js-add-block').style.display = 'none'; 
+            addBlock.style.display = 'none'; 
         }     
-		document.getElementById('js-payload').innerHTML = payload; 		
+		payloadElem.innerHTML = payload; 		
   })	
 }
 
 function onButtonAdd(){
   var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
-  document.getElementById('js-payload').innerHTML = payload;  
+  payloadElem.innerHTML = payload;  
   addArticle(key, payload);
 }
 
@@ -86,6 +88,6 @@ function onButtonAdd(){
 function onButtonNewAdd(){
   var key = formMenu.keyInput.value;
   formOutput.newKey.value = key;
-  document.getElementById('js-payload').innerText = "";
-  document.getElementById('js-add-block').style.display = 'inline';
+  payloadElem.innerText = "";
+  addBlock.style.display = 'inline';
 }
