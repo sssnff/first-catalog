@@ -23,7 +23,7 @@ searchButton.onclick = function(event){
 }
 
 
-// indexedDB.deleteDatabase(baseName);
+//indexedDB.deleteDatabase(baseName);
 function connectDB(callback){
   var request = indexedDB.open(baseName, 1);
   request.onsuccess = function(){
@@ -82,6 +82,12 @@ function onButtonAdd(){
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
   payloadElem.innerHTML = payload;  
   addArticle(key, payload);
+     if(payload !== undefined){
+         addBlock.style.display = 'none';            
+        }
+    else {
+         addBlock.style.display = 'inline';
+        } 
 }
 
 
