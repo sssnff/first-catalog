@@ -7,8 +7,16 @@ var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedD
 var baseName = "articlesDB";
 var storeName = "articles";
 
+var check = false;
+
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
+var loginItem = document.getElementById('js-login');
+
+loginBtn.onclick = function(event){
+    check = true;
+    onButtonLogin(check);
+}
 
 addBtn.onclick = function(event){
 	onButtonNewAdd();
@@ -19,9 +27,8 @@ addBtn2.onclick = function(event){
 }
 
 searchButton.onclick = function(event){
-	onButtonSearch();
+	onButtonSearch();    
 }
-
 
 //indexedDB.deleteDatabase(baseName);
 function connectDB(callback){
@@ -62,7 +69,6 @@ function getArticle(keyArticle, callback){
   });
 }
 
-
 function onButtonSearch(){
   var key = formMenu.keyInput.value; 
 	  getArticle(key, function(payload){
@@ -90,10 +96,18 @@ function onButtonAdd(){
         } 
 }
 
-
 function onButtonNewAdd(){
   var key = formMenu.keyInput.value;
   formOutput.newKey.value = key;
   payloadElem.innerText = "";
   addBlock.style.display = 'inline';
+}
+
+function onButtonLogin(check) {
+    if(check == true){
+        loginItem.style.display = 'inline';
+     }
+    else {
+        loginItem.style.display = 'none'; 
+    }
 }

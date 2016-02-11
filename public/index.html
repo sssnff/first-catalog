@@ -7,7 +7,6 @@
   <link href="css/style.css" rel="stylesheet" type="text/css"/>	  
   <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
   <script src="bower_components/tinymce/tinymce.min.js" type ="text/javascript"></script>
-  <script src="js/tinymce/langs/ru_RU.js" type ="text/javascript"></script>
   <script src="js/live.js" type ="text/javascript"></script>
   <link rel="SHORTCUT ICON" href="assets/images/herbal.ico" type="image/x-icon">    
   <link rel="stylesheet" href="bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.css">  
@@ -27,19 +26,19 @@
 	
   <div class="container">
       <header>   
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">  
-                <ul class="nav navbar-nav">
-                    <form name="menu" class="form-horizontal navbar-left"> 
-                    <input  class="form-control" id="focusedInput1" name="keyInput" type="text"> <button type="button" class="btn btn-raised btn-info" id="searchButton">search</button> 
-                    <button type="button" class="btn btn-raised btn-info" id="addBtn">add new</button>
-                    <button type="button" class="btn btn-raised btn-default" id="loginBtn">log in</button>
-                    </form>
-                </ul>
-               
+        <div class="navbar navbar-default">
+            <div class="container-fluid">                 
+               <form name="menu" class="form-horizontal"> 
+                  <ul class="nav navbar-nav">
+                       <span class="navbar-header">
+                           <button type="button" class="btn btn-raised btn-default" id="loginBtn">log in</button> </span> 
+                    <input  class="form-control" id="focusedInput1" name="keyInput" type="text">                    
+                    <button type="button" class="btn btn-raised btn-info" id="searchButton">search</button> 
+                    <button type="button" class="btn btn-raised btn-info" id="addBtn">add new</button> 
+                   </ul>
+                </form>
             </div>
-        </nav> 
-          
+        </div> 
       </header>
     
       
@@ -57,45 +56,30 @@
       Nam ne brute deseruisse. Ei vero molestie vel, sea in tale quaestio. Pro quaestio constituam an. Modus commodo indoctum ne qui, magna aperiam repudiare mei at. Nibh appetere evertitur cu ius, ad per viris decore omittam, ei nec intellegat posidonium. Ei disputando instructior est, nam verear iriure in.          
       </div>
         
-      <div id="js-add-block" class="add-block"> 
+      <div class="add-block" id="js-add-block"> 
           <form name="contentInput">
               <label class="col-md-2 control-label">your key: </label>
               <input name="newKey" type="text" class="form-control input-lg" type="text" id="inputLarge">
               <textarea rows="4" cols="50" class="otherInput" name="outputText" id="js-add" size="14"></textarea>      
               <button name="addButton" type="button" class="btn btn-raised btn-info" id="addBtn2"><img src="assets/images/check.png"></button> 
           </form>
+      </div>
+        
+    <div class="login" id="js-login">
+       <div class="form-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="email">            
         </div>
+       <div class="form-group">           
+          <input type="password" class="form-control" id="inputPassword" placeholder="password">            
+       </div> 
+      <button type="button" class="btn btn-raised btn-info" id="loginBtn">OK</button>             
+    </div>
+        
     </article> 
     </div>   
       
-<div class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>       
-      </div>
-      <div class="modal-body">
-          <div class="form-group">
-            <label for="inputEmail" class="col-md-2 control-label">email</label>
-            <div class="col-md-10">
-                <input type="email" class="form-control" id="inputEmail">
-            </div>
-          </div>
-        <div class="form-group">
-            <label for="inputPassword" class="col-md-2 control-label">password</label>
-            <div class="col-md-10">
-                <input type="password" class="form-control" id="inputPassword">
-            </div>
-         </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-raised btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-raised btn-info">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
-</div>  
-    
+ 
+</div>   
 </body>
     
 </html>
