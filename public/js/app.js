@@ -2,7 +2,7 @@ var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
-var formSignupLogin = document.forms.logIn_signUp;
+var formLogin = document.forms.logInForm;
 
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";

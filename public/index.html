@@ -31,7 +31,7 @@
                <form name="menu" class="form-horizontal"> 
                   <ul class="nav navbar-nav">
                     <button type="button" class="btn btn-raised btn-default" id="loginBtn">log in</button>
-                    <input  class="form-control" id="focusedInput1" name="keyInput" type="text">                    
+                    <input  class="form-control" id="focusedInput1" name="keyInput" type="text" autocomplete="on">                    
                     <button type="button" class="btn btn-raised btn-info" id="searchButton">search</button> 
                     <button type="button" class="btn btn-raised btn-info" id="addBtn">add new</button> 
                    </ul>
@@ -58,22 +58,36 @@
       <div class="add-block" id="js-add-block"> 
           <form name="contentInput">
               <label class="col-md-2 control-label">your key: </label>
-              <input name="newKey" type="text" class="form-control input-lg" type="text" id="inputLarge">
+              <input name="newKey" type="text" class="form-control input-lg" type="text" id="inputLarge" autocomplete="on">
               <textarea rows="4" cols="50" class="otherInput" name="outputText" id="js-add" size="14"></textarea>      
               <button name="addButton" type="button" class="btn btn-raised btn-info" id="addBtn2"><img src="assets/images/check.png"></button> 
           </form>
       </div>
         
     <div class="login" id="js-login" >
-        <form name="logIn_signUp" class="form-horizontal"> 
+        <form name="logInForm" class="form-horizontal"> 
             <div class="form-group">
-                <input type="email" name="emailInput" class="form-control" id="inputEmail" placeholder="email">            
+                <input type="email" name="emailInput" class="form-control" id="inputEmail" placeholder="email" autocomplete="on">            
             </div>
             <div class="form-group">           
-                <input type="password" name="passInput" class="form-control" id="inputPassword" placeholder="password">            
+                <input type="password" name="passInput" class="form-control" id="inputPassword" placeholder="password" autocomplete="off">            
             </div> 
         </form>
          <button type="button" class="btn btn-raised btn-default" id="signUpBtn">SIGN UP</button>  
+         <button type="button" class="btn btn-raised btn-info" id="loginBtn">OK</button>   
+    </div>
+                
+    <div class="registration" id="js-login" >
+        <form name="regForm">             
+            <div class="form-group">
+                <input type="email" name="logInput" class="form-control" id="inputLogin" placeholder="login" autocomplete="on">     
+                <input type="email" name="emailInput" class="form-control" id="inputEmail" placeholder="email" autocomplete="on">            
+            </div>
+            <div class="form-group">           
+                <input type="password" name="passInput" class="form-control" id="inputPassword" placeholder="password" autocomplete="off"> 
+                <input type="password" name="twicePassInput" class="form-control" id="inputPasswordTwice" placeholder="repeat password" autocomplete="off">     
+            </div>             
+        </form> 
          <button type="button" class="btn btn-raised btn-info" id="loginBtn">OK</button>   
     </div>
         
