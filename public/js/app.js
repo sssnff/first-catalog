@@ -2,21 +2,18 @@ var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
 var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
+var formSignupLogin = document.forms.logIn_signUp;
 
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";
 var storeName = "articles";
 
-var check = false;
+
 
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
 var loginItem = document.getElementById('js-login');
 
-loginBtn.onclick = function(event){
-    check = true;
-    onButtonLogin(check);
-}
 
 addBtn.onclick = function(event){
 	onButtonNewAdd();
@@ -101,13 +98,4 @@ function onButtonNewAdd(){
   formOutput.newKey.value = key;
   payloadElem.innerText = "";
   addBlock.style.display = 'inline';
-}
-
-function onButtonLogin(check) {
-    if(check == true){
-        loginItem.style.display = 'inline';
-     }
-    else {
-        loginItem.style.display = 'none'; 
-    }
 }
