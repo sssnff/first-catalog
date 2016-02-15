@@ -8,8 +8,6 @@ var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedD
 var baseName = "articlesDB";
 var storeName = "articles";
 var loginStoreName = "login";
-//var baseName = "usersDB";
-//var storeName = "users";
 
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
