@@ -144,3 +144,10 @@ input[type=text] {
 .registration{
    text-align: center;
 }
+
+.mPopup{
+        /* popup css code */
+    text-align: center;
+        width: 60%;
+        height: 45%;
+    }

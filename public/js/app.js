@@ -7,8 +7,9 @@ var formLogin = document.forms.logInForm;
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";
 var storeName = "articles";
-
-
+var loginStoreName = "login";
+//var baseName = "usersDB";
+//var storeName = "users";
 
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
@@ -49,6 +50,7 @@ function addArticle(keyArticle, payloadArticle){
     }
   });
 }
+
 
 function getArticle(keyArticle, callback){
   connectDB(function(db){
