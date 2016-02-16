@@ -1,13 +1,13 @@
 var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
+var ACCES_USERS_ONLY = 'sorry, you can add smthng only if you logged in :c ';
 var articles = [];
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
-var formLogin = document.forms.logInForm;
+var hasWriteAcces = false;
 
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 var baseName = "articlesDB";
 var storeName = "articles";
-var loginStoreName = "login";
 
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
@@ -15,7 +15,7 @@ var loginItem = document.getElementById('js-login');
 
 
 addBtn.onclick = function(event){
-	onButtonNewAdd();
+	onButtonNewAdd(hasWriteAcces);
 }
 
 addBtn2.onclick = function(event){
@@ -23,7 +23,7 @@ addBtn2.onclick = function(event){
 }
 
 searchButton.onclick = function(event){
-	onButtonSearch();    
+	onButtonSearch(hasWriteAcces);    
 }
 
 //indexedDB.deleteDatabase(baseName);
@@ -66,11 +66,11 @@ function getArticle(keyArticle, callback){
   });
 }
 
-function onButtonSearch(){
+function onButtonSearch(hasWriteAcces){
   var key = formMenu.keyInput.value; 
 	  getArticle(key, function(payload){
 		formOutput.newKey.value = key; 
-        if(payload === EMPTY_PAYLOAD){
+        if(payload === EMPTY_PAYLOAD && hasWriteAcces === true){
            addBlock.style.display = 'inline';
         }
         else {
@@ -93,9 +93,14 @@ function onButtonAdd(){
         } 
 }
 
-function onButtonNewAdd(){
+function onButtonNewAdd(hasWriteAcces){
+  if(hasWriteAcces === true){
   var key = formMenu.keyInput.value;
   formOutput.newKey.value = key;
   payloadElem.innerText = "";
   addBlock.style.display = 'inline';
+    }
+    else{
+      payloadElem.innerText = ACCES_USERS_ONLY; 
+    }
 }

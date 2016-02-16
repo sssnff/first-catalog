@@ -6,11 +6,5 @@ $(document).ready(function(){
     });
 });
         
-$(document).ready(function(){
-    var popup = $('#sample2').mPopup();
-    $('#signUpBtn').on('click',function(e){
-        e.preventDefault();
-        popup.mPopup('open');
-    });
-});
+
    
