@@ -37,16 +37,17 @@
                   <ul class="nav navbar-nav">   
                   <span id="offline"><i class="fa fa-lock"></i></span>          
                   <span id="online"><i class="fa fa-unlock"></i></span>         
-                    <button type="button" class="btn btn-raised btn-default" id="loginBtn">sign up</button>
+                    <button type="button" class="btn btn-raised btn-default" id="loginBtn">sign in</button>
                     <input  class="form-control" id="focusedInput1" name="keyInput" type="text" autocomplete="on">                    
                     <button type="button" class="btn btn-raised btn-info" id="searchButton">search</button> 
-                    <button type="button" class="btn btn-raised btn-info" id="addBtn">add new</button> 
+                    <button type="button" class="btn btn-info" id="addBtn" disabled>add new</button>
                    </ul>
                 </form>
             </div>
         </div> 
       </header>
     
+      
       
     <div class="span10">        
     <article class="main">
@@ -74,11 +75,12 @@
 
     <div id="sample1" class="mPopup">
         <button class="mPopup-close">×</button>
-         <div class="popup-header">SIGN UP</div>
+         <div class="popup-header">SIGN IN</div>
+            <div id="error">error</div>
             <div class="popup-body">
-             <div class="login" id="js-login" >
-                    <div class="form-group">
+             <div class="login" id="js-login" >                    
                 <form name="logInForm" class="form-horizontal"> 
+                    <div class="form-group">
                         <i class="fa fa-at"></i>
                         <input type="email" class="form-control" id="inputEmail" placeholder="email" autocomplete="on">
                     </div>

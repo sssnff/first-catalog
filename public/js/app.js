@@ -16,7 +16,8 @@ var email = document.getElementById('inputEmail');
 var pass = document.getElementById('inputPassword');
 var off = document.getElementById('offline');
 var on = document.getElementById('online');
-
+var signUp = document.getElementById('loginBtn');
+var addBtn = document.getElementById("addBtn");
 
 addBtn.onclick = function(event){
 	onButtonNewAdd();
@@ -31,11 +32,21 @@ searchButton.onclick = function(event){
 }
 
 doLogin.onclick = function(event){
-	addUser(email.value, pass.value);    
+    checkUser(email.value, pass.value, function(isSuccess){
+        console.log(isSuccess);
+        hasWriteAcces = isSuccess;
+        if(isSuccess){
+            on.style.display = 'inline'; 
+            off.style.display = 'none';
+            signUp.style.display = 'none';
+            addBtn.disabled = false;
+            addBtn.className += " btn-raised";
+        }
+    });
 }
 
-
-indexedDB.deleteDatabase(baseName);
+//indexedDB.deleteDatabase(baseName);
+addUser('admin@admin.com', 'admin');  
 
 function connectDB(callback){
   var request = indexedDB.open(baseName, 1);
@@ -68,15 +79,30 @@ function addUser(user, userPass){
     var request = db.transaction([usersStoreName], "readwrite")
 					.objectStore(usersStoreName)
 					.put({email: user, password: userPass});
-    request.onsuccess = function(){
-		hasWriteAcces = true;
-    on.style.display = 'inline'; 
-    off.style.display = 'none'; 
+    request.onsuccess = function(){	
     return request.result;
     }
   });
 }
 
+function checkUser(userEmail, userPass, callback){ //потом исправишь как те нрав
+  connectDB(function(db){
+    var request = db.transaction([usersStoreName], "readwrite")
+					.objectStore(usersStoreName)
+					.get(userEmail);  
+	request.onsuccess = function(){
+		var result = request.result;
+		if(result){
+			callback(result.password === userPass);	
+		} else {
+			callback(false);
+		}
+    }
+    request.onerror = function(){
+        callback(false);
+    }
+  });  
+}
 
 function getArticle(keyArticle, callback){
   connectDB(function(db){
