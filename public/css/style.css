@@ -153,3 +153,13 @@ input[type=text] {
     width: 60%;
     height: 50%;
 }
+
+button:disabled {
+    color:#d9d9d9 !important;    
+}
+
+button:hover:disabled {
+    color:#d9d9d9 !important;  
+    background: #29516D !important;
+    cursor: auto !important;
+}
