@@ -140,7 +140,7 @@ function onButtonAdd(){
   payloadElem.innerHTML = payload;  
   addArticle(key, payload);
   if(payload !== undefined){
-    addBlock.style.display = 'none';            
+    addBlock.style.display = 'none'; 
   }
   else {
     addBlock.style.display = 'inline';
@@ -148,13 +148,9 @@ function onButtonAdd(){
 }
 
 function onButtonNewAdd(){
-  if(!!hasWriteAcces){
 	  var key = formMenu.keyInput.value;
 	  formOutput.newKey.value = key;
 	  payloadElem.innerText = "";
 	  addBlock.style.display = 'inline';
-    }
-    else{
-      payloadElem.innerText = ACCES_USERS_ONLY; 
-    }
+      payloadElem.style.display = 'none';     
 }
