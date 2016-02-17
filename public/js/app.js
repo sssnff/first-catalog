@@ -1,5 +1,4 @@
 var EMPTY_PAYLOAD = 'sorry, there is nothing for your request :c';
-var ACCES_USERS_ONLY = 'sorry, you can add smthng only if you logged in :c ';
 
 var formMenu = document.forms.menu;
 var formOutput = document.forms.contentInput;
@@ -85,7 +84,7 @@ function addUser(user, userPass){
   });
 }
 
-function checkUser(userEmail, userPass, callback){ //потом исправишь как те нрав
+function checkUser(userEmail, userPass, callback){ 
   connectDB(function(db){
     var request = db.transaction([usersStoreName], "readwrite")
 					.objectStore(usersStoreName)
