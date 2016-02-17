@@ -137,6 +137,9 @@ input[type=text] {
     width: 100%;
 }
 
+#online{
+   display: none;
+}
 .login{
    text-align: center;
 }

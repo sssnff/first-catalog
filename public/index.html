@@ -34,7 +34,9 @@
         <div class="navbar navbar-default">
             <div class="container-fluid">                 
                <form name="menu" class="form-horizontal"> 
-                  <ul class="nav navbar-nav">
+                  <ul class="nav navbar-nav">   
+                  <span id="offline"><i class="fa fa-lock"></i></span>          
+                  <span id="online"><i class="fa fa-unlock"></i></span>         
                     <button type="button" class="btn btn-raised btn-default" id="loginBtn">sign up</button>
                     <input  class="form-control" id="focusedInput1" name="keyInput" type="text" autocomplete="on">                    
                     <button type="button" class="btn btn-raised btn-info" id="searchButton">search</button> 
@@ -75,14 +77,14 @@
          <div class="popup-header">SIGN UP</div>
             <div class="popup-body">
              <div class="login" id="js-login" >
-                <form name="logInForm" class="form-horizontal"> 
                     <div class="form-group">
-                        <i class="fa fa-user"></i>
-                        <input type="email" name="logInput" class="form-control" id="inputLogin" placeholder="login" autocomplete="on">
+                <form name="logInForm" class="form-horizontal"> 
+                        <i class="fa fa-at"></i>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="email" autocomplete="on">
                     </div>
                     <div class="form-group">           
-                        <i class="fa fa-lock"></i>
-                        <input type="password" name="passInput" class="form-control" id="inputPassword" placeholder="password" autocomplete="off" >  
+                        <i class="fa fa-key"></i>
+                        <input type="password" class="form-control" id="inputPassword" placeholder="password" autocomplete="off" >  
                     </div> 
                 </form>
                 <button type="button" class="btn btn-raised btn-info" id="doLogin">OK</button>   

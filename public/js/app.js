@@ -12,8 +12,10 @@ var usersStoreName = "users";
 var addBlock = document.getElementById('js-add-block');
 var payloadElem = document.getElementById('js-payload');
 var loginItem = document.getElementById('js-login');
-var login = document.getElementById('inputLogin');
+var email = document.getElementById('inputEmail');
 var pass = document.getElementById('inputPassword');
+var off = document.getElementById('offline');
+var on = document.getElementById('online');
 
 
 addBtn.onclick = function(event){
@@ -29,11 +31,11 @@ searchButton.onclick = function(event){
 }
 
 doLogin.onclick = function(event){
-	addUser(login.value, pass.value);    
+	addUser(email.value, pass.value);    
 }
 
 
-//indexedDB.deleteDatabase(baseName);
+indexedDB.deleteDatabase(baseName);
 
 function connectDB(callback){
   var request = indexedDB.open(baseName, 1);
@@ -43,7 +45,7 @@ function connectDB(callback){
   request.onupgradeneeded = function(e){
 	var db = e.currentTarget.result;
     db.createObjectStore(articlesStoreName, { keyPath: "name" });
-	db.createObjectStore(usersStoreName, { keyPath: "login" });
+	db.createObjectStore(usersStoreName, { keyPath: "email" });
     connectDB(callback);
   }
 }
@@ -65,10 +67,12 @@ function addUser(user, userPass){
   connectDB(function(db){
     var request = db.transaction([usersStoreName], "readwrite")
 					.objectStore(usersStoreName)
-					.put({login: user, password: userPass});
+					.put({email: user, password: userPass});
     request.onsuccess = function(){
 		hasWriteAcces = true;
-    	return request.result;
+    on.style.display = 'inline'; 
+    off.style.display = 'none'; 
+    return request.result;
     }
   });
 }
@@ -98,7 +102,7 @@ function onButtonSearch(){
            addBlock.style.display = 'inline';
         }
         else {
-            addBlock.style.display = 'none'; 
+          addBlock.style.display = 'none'; 
         }     
 		payloadElem.innerHTML = payload; 		
   })	

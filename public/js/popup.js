@@ -4,6 +4,10 @@ $(document).ready(function(){
         e.preventDefault();
         popup.mPopup('open');
     });
+     $('#doLogin').on('click',function(e){
+        e.preventDefault();
+        popup.mPopup('close');
+    });
 });
         
 
