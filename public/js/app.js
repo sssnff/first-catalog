@@ -44,9 +44,6 @@ doLogin.onclick = function(event){
     });
 }
 
-//indexedDB.deleteDatabase(usersStoreName);
-addUser('admin@admin.com', 'admin');  
-
 function connectDB(callback){
   var request = indexedDB.open(baseName, 1);
   request.onsuccess = function(){
