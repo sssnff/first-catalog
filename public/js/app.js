@@ -44,7 +44,7 @@ doLogin.onclick = function(event){
     });
 }
 
-//indexedDB.deleteDatabase(baseName);
+//indexedDB.deleteDatabase(usersStoreName);
 addUser('admin@admin.com', 'admin');  
 
 function connectDB(callback){
@@ -128,7 +128,8 @@ function onButtonSearch(){
         }
         else {
           addBlock.style.display = 'none'; 
-        }     
+        } 
+		payloadElem.style.display = 'inline';
 		payloadElem.innerHTML = payload; 		
   })	
 }
@@ -136,6 +137,7 @@ function onButtonSearch(){
 function onButtonAdd(){
   var key = formOutput.newKey.value;
   var payload = tinyMCE.get('js-add').getContent({format : 'html'});
+  payloadElem.style.display = 'inline';
   payloadElem.innerHTML = payload;  
   addArticle(key, payload);
   if(payload !== undefined){
